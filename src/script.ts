@@ -57,3 +57,71 @@ if (userStatusNote !== undefined) {
 
 let myVariable: string | number; //UNION-Type
 myVariable = 123;
+
+
+
+
+
+
+
+
+
+let myLiteral: "admin" | "member" | boolean | 42 = true;
+
+console.log(myLiteral);
+
+
+let myArray: (number | string)[] = [123, 321, 621, "hi"];
+
+
+console.log(myArray);
+
+
+
+
+
+
+let myTupelArray: [string, number, number] = ["hi", 42, 621];
+//The tupel is:  [string, number, number]
+
+function withReturn(a: number, b: number): number {
+    return a + b;
+}
+
+//first: (name?:string) declares name to be a string or undefined
+//logs: if name is a NON-EMPTY-STRING
+// withoutReturn("") -> logs "unknown"
+// withoutReturn("Alice") -> logs "Alice"
+// withoutReturn() -> logs "unknown"
+function withoutReturn(name?: string): void {
+    console.log(name ? name : "unknown");
+}
+
+console.log(myTupelArray);
+
+//name has to be present AND be a string
+//price is optional (can be number or is undefined)
+//logger takes string and returns void (declared in line 7)
+let product: {
+    name: string,
+    price?: number,
+    logger: (msg: string) => void
+} = {
+    name: "book",
+    logger: (msg) => {
+        console.log(msg);
+    }
+}
+
+
+
+
+import { User } from './interfaces'
+
+function logAdmin(user: User): User {
+    return user;
+}
+
+function logAdmin(user: { name: string, role: string }): { name: string, role: string } {
+    return user
+}
